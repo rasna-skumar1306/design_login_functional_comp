@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import 'semantic-ui-css/semantic.min.css';
+
+import './App.scss'
+import LogReg from './components/login';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>This is the APP</h1>
     </div>
   );
 }
 
-export default App;
+const Root = () =>
+  (<Router>
+    <Switch>
+      <Route exact path="/" component={App} />
+      <Route exact path='/login' component={LogReg} />
+      <Route exact path='/register' component={LogReg} />
+    </Switch>
+  </Router>)
+
+
+export default Root;
